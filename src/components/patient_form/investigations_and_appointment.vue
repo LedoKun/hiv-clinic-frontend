@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Investigations -->
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-2 border-bottom">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-2">
       <div>
         <h2 class="h2">
           Investigations
@@ -49,7 +49,7 @@
           </b-col>
 
           <b-col class="form-group">
-            <label for="anti-hiv">Anti-HIV</label>
+            <label for="anti_hiv">Anti-HIV</label>
               <multiselect
                 id="anti_hiv"
                 v-model="input_anti_hiv"
@@ -118,7 +118,7 @@
           <b-col class="form-group">
             <label for="vdrl">VDRL</label>
               <multiselect
-                id="anti_hiv"
+                id="vdrl"
                 v-model="input_vdrl"
                 :options="options.lab_options_pos_neg"
                 :tabIndex="0"
@@ -534,11 +534,14 @@
 
     </div>
 
-    <!-- Appointment header -->
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap pt-3 pb-2">
-      <h2 class="lead">Appointments</h2>
+    <!-- Appointment -->
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-4">
+      <div>
+        <h2 class="h2">
+          Appointments
+        </h2>
+      </div>
     </div>
-    <!-- /Appointment header -->
 
     <!-- Appointment table -->
     <div>

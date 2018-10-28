@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Header -->
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-2 border-bottom">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-2">
       <div v-if="this.patient.hn === null || this.patient.hn === ''">
         <h2 class="h2">
           New Patient

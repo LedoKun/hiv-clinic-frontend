@@ -14,75 +14,87 @@
                 </router-link>
             </li>
 
-            <li
-                class="nav-item"
+            <div
+                v-if="isLoggedIn"
             >
-
-                <router-link
-                    class="nav-link"
-                    :to="{ name: 'Appointments' }"
-                    exact
+                <li
+                    class="nav-item"
                 >
-                    <span><feather type="calendar"></feather></span>
-                    Appointments
-                </router-link>
-            </li>
 
-            <li
-                class="nav-item"
-            >
-                <router-link
-                    class="nav-link"
-                    :to="{ name: 'Patient' }"
-                    exact
+                    <router-link
+                        class="nav-link"
+                        :to="{ name: 'Appointments' }"
+                        exact
+                    >
+                        <span><feather type="calendar"></feather></span>
+                        Appointments
+                    </router-link>
+                </li>
+
+                <li
+                    class="nav-item"
                 >
-                    <span><feather type="users"></feather></span>
-                    Patient
-                </router-link>
-            </li>
+                    <router-link
+                        class="nav-link"
+                        :to="{ name: 'Patient' }"
+                        exact
+                    >
+                        <span><feather type="users"></feather></span>
+                        Patient
+                    </router-link>
+                </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span><feather type="bar-chart-2"></feather></span>
-                    Statistics
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span><feather type="file"></feather></span>
-                    Export Data
-                </a>
-            </li>
-        </ul>
-
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>Opened Records</span>
-            <div class="d-flex align-items-center text-muted" href="#">
-                <span><feather type="layers"></feather></span>
+                <li class="nav-item">
+                    <router-link
+                        class="nav-link"
+                        :to="{ name: 'Statistics' }"
+                        exact
+                    >
+                        <span><feather type="bar-chart-2"></feather></span>
+                        Statistics
+                    </router-link>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <span><feather type="file"></feather></span>
+                        Export Data
+                    </a>
+                </li>
             </div>
-        </h6>
-        <ul class="nav flex-column mb-2">
-            <!-- Links to saved records -->
-            <li
-                class="nav-item"
-                v-for="(hn, key) in savedRecords"
-                v-bind:key="key"
-            >
-                <router-link
-                    class="nav-link"
-                    :to="{
-                        name: 'Patient',
-                        params: {
-                            hn_arg: hn.replace(/\//g, '^')
-                        }
-                    }"
-                    exact
-                >
-                    <span><feather type="user"></feather></span>
-                    HN {{ hn }}
-                </router-link>
-            </li>
         </ul>
+
+        <div
+            v-if="isLoggedIn"
+        >
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Opened Records</span>
+                <div class="d-flex align-items-center text-muted" href="#">
+                    <span><feather type="layers"></feather></span>
+                </div>
+            </h6>
+            <ul class="nav flex-column mb-2">
+                <!-- Links to saved records -->
+                <li
+                    class="nav-item"
+                    v-for="(hn, key) in savedRecords"
+                    v-bind:key="key"
+                >
+                    <router-link
+                        class="nav-link"
+                        :to="{
+                            name: 'Patient',
+                            params: {
+                                hn_arg: hn.replace(/\//g, '^')
+                            }
+                        }"
+                        exact
+                    >
+                        <span><feather type="user"></feather></span>
+                        HN {{ hn }}
+                    </router-link>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -134,6 +146,9 @@ export default {
     ]),
     ...mapState('savedRecord', [
       'savedRecords'
+    ]),
+    ...mapState('auth', [
+      'isLoggedIn'
     ]),
 
     isPatientLoaded: function () {

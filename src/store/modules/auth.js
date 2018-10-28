@@ -4,12 +4,7 @@ let state = {
 
 let mutations = {
   LOGIN (state) {
-    state.pending = true
-  },
-
-  LOGIN_SUCCESS (state) {
     state.isLoggedIn = true
-    state.pending = false
   },
 
   LOGOUT (state) {
@@ -17,10 +12,15 @@ let mutations = {
   }
 }
 
+let actions = {
+  loginAction: ({ commit }) => commit('LOGIN'),
+  logoutAction: ({ commit }) => commit('LOGOUT')
+}
+
 export default {
   namespaced: true,
   state,
   //   getters,
-  //   actions,
+  actions,
   mutations
 }

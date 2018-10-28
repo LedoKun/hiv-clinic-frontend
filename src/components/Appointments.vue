@@ -183,7 +183,7 @@ export default {
 
       this.$API({
         url: 'appointment',
-        methods: 'get',
+        method: 'get',
         params: {
           'date': dateToIsostring(this.selectedDate),
           'page': this.currentPage
