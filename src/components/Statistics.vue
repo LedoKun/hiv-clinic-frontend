@@ -745,8 +745,6 @@ export default {
             }
 
             self.loaded = true
-
-            console.log(self.stats)
           }
         })
         .catch(function (error) {

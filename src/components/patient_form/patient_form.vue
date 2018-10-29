@@ -361,6 +361,8 @@
               id="refer_from"
               v-model="refer_from"
               src="/api/search/field_entries?field_name=refer_from&query=:keyword"
+
+              :fetch="searchFetch"
               :getResponse="getResponse"
               :minChars="parseInt(3)"
               :delayTime="parseInt(500)"
@@ -757,6 +759,10 @@ export default {
             })
           })
       }
+    },
+
+    searchFetch: function (url) {
+      return this.$API.get(url)
     }
   }
 }
