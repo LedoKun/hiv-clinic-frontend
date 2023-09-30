@@ -1,6 +1,29 @@
-# hiv-clinic-frontend
+# HIV Clinic Frontend
 
-> An simple frontend website for HIV Clinic at 28th Public Health Center.
+The frontend of the HIV Clinic project, built with Vue.js and Bulma, providing an intuitive user interface for accessing clinic information and performance dashboards.
+
+## About
+
+The HIV Clinic Frontend is a user-friendly web application that complements the backend server. It provides healthcare professionals and users with performance dashboards and reporting tools.
+
+## Features
+
+- Integration with the HIV Clinic Backend API
+- Customizable reporting and data visualization
+
+## Getting Started
+
+Follow these steps to set up and run the HIV Clinic Frontend on your local machine.
+
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- Node.js and npm
+- [Vue CLI](https://cli.vuejs.org/guide/installation.html)
+- [Bulma](https://bulma.io/) (A modern CSS framework)
+
+### Installation
 
 ## Build Setup
 
